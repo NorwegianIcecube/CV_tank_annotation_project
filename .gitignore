@@ -1,7 +1,5 @@
-*
-!.gitignore
 # Directories
-#data/tank_images/*
-#!data/tank_images/.gitkeep
-#data/tank_videos/*
-#!data/tank_videos/.gitkeep
+data/tank_images/*
+!data/tank_images/.gitkeep
+data/tank_videos/*
+!data/tank_videos/.gitkeep
