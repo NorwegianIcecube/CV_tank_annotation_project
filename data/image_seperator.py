@@ -1,9 +1,9 @@
 import cv2
 import os
 
-video_path = './data/tank_videos'
+video_path = './tank_videos'
 
-image_path = './data/tank_images'
+image_path = './tank_images'
 
 def get_frames(video, frame_interval):
     # Get the video
