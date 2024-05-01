@@ -1,9 +1,11 @@
 import cv2
 import os
 
-video_path = './tank_videos'
+video_path = './data/tank_videos'
 
-image_path = './tank_images'
+image_path = './data/tank_images'
+
+FRAMES_PER_IMAGE = 50
 
 def get_frames(video, frame_interval):
     # Get the video
@@ -22,7 +24,7 @@ def get_frames(video, frame_interval):
 
 def save_frames(frames, video_name):
     for i, frame in enumerate(frames):
-        cv2.imwrite(f'{image_path}/{video_name}/frame_{i+1}.jpg', frame)
+        cv2.imwrite(f'{image_path}/{video_name}/frame_{FRAMES_PER_IMAGE*i+1}.jpg', frame)
 
 def main():
     videos = os.listdir(video_path)
@@ -33,7 +35,7 @@ def main():
             os.mkdir(f'{image_path}/{video}')
         except FileExistsError:
             pass
-        frames = get_frames(f'{video_path}/{video}', 1)
+        frames = get_frames(f'{video_path}/{video}', FRAMES_PER_IMAGE)
         save_frames(frames, video)
 
 if __name__ == '__main__':
