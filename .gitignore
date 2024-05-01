@@ -1,5 +1,7 @@
 # Directories
-data/tank_images/*
+data/*
 !data/tank_images/.gitkeep
-data/tank_videos/*
 !data/tank_videos/.gitkeep
+
+# Pretrained models
+yolov8n-seg.pt
