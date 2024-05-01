@@ -1,5 +1,8 @@
 # Directories
 data/*
+JSON2YOLO/
+!data/COCO/.gitkeep
+!data/YOLO/.gitkeep
 !data/tank_images/.gitkeep
 !data/tank_videos/.gitkeep
 
