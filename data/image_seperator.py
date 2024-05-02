@@ -3,7 +3,7 @@ import os
 
 video_path = './data/tank_videos'
 
-image_path = './data/tank_images'
+image_path = './data/tank_video_frames'
 
 FRAMES_PER_IMAGE = 50
 
