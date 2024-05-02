@@ -1,0 +1,5 @@
+- the directory "datasets" needs to be formated and structured correctly for YOLO/Ultralytics
+https://docs.ultralytics.com/datasets/classify/
+
+- Confirm all images and their annotations are present
+- Do a testrun once everything is set up
