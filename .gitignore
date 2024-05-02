@@ -1,5 +1,26 @@
 # Directories
+<<<<<<< Updated upstream
 data/tank_images/*
 !data/tank_images/.gitkeep
 data/tank_videos/*
 !data/tank_videos/.gitkeep
+=======
+data/*
+datsets/*
+JSON2YOLO/
+!data/COCO/.gitkeep
+!data/YOLO/.gitkeep
+!data/tank_images/.gitkeep
+!data/tank_videos/.gitkeep
+!todo.txt
+
+ultralytics/
+models/
+runs/
+.venv/
+testbed_yolov8.ipynb
+
+# Pretrained models
+yolov8n-seg.pt
+yolov8n.pt
+>>>>>>> Stashed changes
