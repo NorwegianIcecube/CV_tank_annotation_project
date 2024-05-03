@@ -21,6 +21,5 @@ runs/
 testbed_yolov8.ipynb
 
 # Pretrained models
-yolov8n-seg.pt
-yolov8n.pt
+*.pt
 >>>>>>> Stashed changes
