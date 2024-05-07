@@ -152,6 +152,8 @@ def fn_select_tool():
     draw_tool = False
     global delete
     delete = False
+    global is_drawing
+    is_drawing = False
 
 def fn_draw_tool():
     global draw_tool
@@ -160,6 +162,8 @@ def fn_draw_tool():
     select_tool = False
     global delete
     delete = False
+    global is_drawing
+    is_drawing = False
 
 def fn_delete():
     global delete
@@ -168,6 +172,9 @@ def fn_delete():
     select_tool = False
     global draw_tool
     draw_tool = False
+    global is_drawing
+    is_drawing = False
+
 
 def _remove_suffix(file_name):
         return file_name[:-4]
@@ -355,6 +362,9 @@ def save_annotation(event=None):
     global img
     global scaled_image
     global points
+    global is_drawing
+
+    is_drawing = False
 
     for o in objects:
         o.clear_points()
