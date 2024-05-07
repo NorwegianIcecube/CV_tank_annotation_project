@@ -363,6 +363,7 @@ def save_annotation(event=None):
     global scaled_image
     global points
     global is_drawing
+    global imscale
 
     is_drawing = False
 
@@ -387,7 +388,9 @@ def save_annotation(event=None):
     os.rename(f'{IMG_PATH}/{img}', f'{EXPORT_PATH}/{img}')
 
     # Load the next image
-    img = _get_first_image()
+    #img = _get_first_image()
+    imscale = 1.0
+    img, scaled_image = load_image()
     
     points = get_annotations(img)
     objects = []
@@ -395,7 +398,6 @@ def save_annotation(event=None):
         for tank_object in points[label]:
             objects.append(TankObject(label, tank_object))
     
-    img, scaled_image = load_image()
     show_image()
     image_window.update()
 

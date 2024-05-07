@@ -24,19 +24,18 @@ def get_frames(video, frame_interval):
 
 def save_frames(frames, video_name):
     for i, frame in enumerate(frames):
-        cv2.imwrite(f'{image_path}/{video_name}/frame_{FRAMES_PER_IMAGE*i+1}.jpg', frame)
+        cv2.imwrite(f'{image_path}/{video_name}_frame_{FRAMES_PER_IMAGE*i+1}.jpg', frame)
+
+def remove_suffix(video_name):
+    return video_name[:-4]
 
 def main():
     videos = os.listdir(video_path)
     videos.remove('.gitkeep')
 
     for video in videos:
-        try:
-            os.mkdir(f'{image_path}/{video}')
-        except FileExistsError:
-            pass
         frames = get_frames(f'{video_path}/{video}', FRAMES_PER_IMAGE)
-        save_frames(frames, video)
+        save_frames(frames, remove_suffix(video))
 
 if __name__ == '__main__':
     main()
