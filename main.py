@@ -1,22 +1,16 @@
-from ultralytics import YOLO
-import os
+from ultralytics import YOLO, settings
 
+settings.reset()
 # Load model
-model = YOLO('yolov8n-seg.pt')
+model = YOLO('yolov8x-seg.pt')
 
 yolo_yaml = 'data/YOLO/HL_data.yaml'
 
 # Transfer learning
-model.train(data=yolo_yaml, epochs=5)
-
-# Save the model
-model.save('yolov8n-seg-tanks.pt')
-
-# Test the model
-results = model.test(data=yolo_yaml)
-
-# Print the results
-
-print(results)
-
-
+results = model.train(
+    data=yolo_yaml,
+    imgsz=640,
+    epochs=100,
+    batch=8,
+    name='ybest.pt'
+)
