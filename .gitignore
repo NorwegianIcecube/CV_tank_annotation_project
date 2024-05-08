@@ -3,7 +3,10 @@ data/*
 !data/YOLO/.gitkeep
 !data/tank_video_frames/.gitkeep
 !data/tank_videos/.gitkeep
+!data/fixed_annotated/.gitkeep
+!data/auto_annotated/.gitkeep
 !data/image_seperator.py
+
 ultralytics/
 models/
 runs/
