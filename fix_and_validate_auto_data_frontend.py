@@ -7,6 +7,7 @@ import cv2
 IMG_PATH = 'data/tank_video_frames'
 ANNOTATION_PATH = 'data/auto_annotated'
 EXPORT_PATH = 'data/fixed_annotated'
+
 imscale = 1.0
 # Create the window with size 1200x600
 window = tk.Tk()
@@ -111,6 +112,7 @@ class Point:
     def drag_point(self, event):
         x = image_window.canvasx(event.x)
         y = image_window.canvasy(event.y)
+        print(x, y)
         image_window.move(self.circle, x-self.x, y-self.y)
         self.set_coords(x, y)
         self._delete_line()
@@ -245,13 +247,6 @@ def get_annotations(img):
     _prune_points(points, 4)
     return points
 
-def draw_points_on_canvas(points):
-    for label in points:
-        for tank_object in points[label]:
-            if tank_object == []:
-                continue
-            #image_window.create_polygon(tank_object, outline='red', fill='', width=2)
-
 def show_image(event=None):
     image_window.configure(scrollregion=image_window.bbox('all'))
     bbox1 = image_window.bbox(container)
@@ -363,7 +358,7 @@ def save_annotation(event=None):
     global scaled_image
     global points
     global is_drawing
-    global imscale
+    #global imscale
 
     is_drawing = False
 
@@ -372,7 +367,6 @@ def save_annotation(event=None):
     with open(f'{EXPORT_PATH}/{_remove_suffix(img)}.txt', 'w') as f:
         for o in objects:
             if o.points == []:
-                print("continue")
                 continue
             f.write(f"{o.label} ")
             for p_i, p in enumerate(o.points):
@@ -389,7 +383,7 @@ def save_annotation(event=None):
 
     # Load the next image
     #img = _get_first_image()
-    imscale = 1.0
+    #imscale = 1.0
     img, scaled_image = load_image()
     
     points = get_annotations(img)
